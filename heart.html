@@ -13,31 +13,31 @@
             height: 100vh;
             margin: 0;
             overflow: hidden;
-            /* Esto es vital para evitar cualquier scroll accidental */
             display: flex;
             justify-content: center;
             align-items: center;
         }
 
-        /* --- Contenedor Responsivo Ajustado --- */
+        /* --- Contenedor Responsivo "Ultra-Wide" --- */
         #ui {
             position: relative;
-            /* Ampliamos el lienzo a 750px para cubrir el recorrido (450px) + el ancho de tu frase (~300px) */
-            width: 750px;
-            /* Altura suficiente para el salto vertical */
-            height: 600px;
+            /* Subimos a 1000px para dar un margen de seguridad masivo al texto */
+            width: 1000px;
+            height: 700px;
 
-            /* Ahora la escala toma en cuenta todo el ancho real */
-            transform: scale(min(1, calc(95vw / 750)));
+            /* Escalamos basado en 1000px para forzar un tamaño menor en móvil */
+            /* Usamos 90vw para dejar un margen estético en los bordes del celular */
+            transform: scale(min(1, calc(90vw / 1000)));
             transform-origin: center center;
         }
 
         /* --- Love words --- */
         #ui .love {
             position: absolute;
-            /* Centramos el punto de inicio de la animación dentro de este nuevo lienzo más grande */
-            top: 80px;
-            left: 50px;
+            /* Centramos el inicio de la animación (de 450px) dentro de los 1000px */
+            /* (1000px - 450px) / 2 = 275px */
+            top: 120px;
+            left: 275px;
             --i: 1;
         }
 
