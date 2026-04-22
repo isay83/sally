@@ -13,30 +13,31 @@
             height: 100vh;
             margin: 0;
             overflow: hidden;
-            font-family: system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
-            /* Centramos el contenedor principal con Flexbox */
+            /* Esto es vital para evitar cualquier scroll accidental */
             display: flex;
             justify-content: center;
             align-items: center;
         }
 
-        /* --- Contenedor Responsivo --- */
+        /* --- Contenedor Responsivo Ajustado --- */
         #ui {
             position: relative;
-            width: 450px;
-            height: 450px;
-            /* Aquí está la magia: 
-               Si la pantalla es mayor a 500px, la escala es 1 (tamaño original).
-               Si es menor, calcula el ratio para que ocupe máximo el 90% del ancho del móvil */
-            transform: scale(min(1, calc(90vw / 450)));
+            /* Ampliamos el lienzo a 750px para cubrir el recorrido (450px) + el ancho de tu frase (~300px) */
+            width: 750px;
+            /* Altura suficiente para el salto vertical */
+            height: 600px;
+
+            /* Ahora la escala toma en cuenta todo el ancho real */
+            transform: scale(min(1, calc(95vw / 750)));
+            transform-origin: center center;
         }
 
         /* --- Love words --- */
         #ui .love {
             position: absolute;
-            /* Quitamos los márgenes negativos, ahora inician desde el punto 0,0 del contenedor #ui */
-            top: 0;
-            left: 0;
+            /* Centramos el punto de inicio de la animación dentro de este nuevo lienzo más grande */
+            top: 80px;
+            left: 50px;
             --i: 1;
         }
 
